@@ -37,7 +37,7 @@ An excellent vscode extension for leetcode.
 
 -   搜索题目
 -   每日一题
--   支持同时登录 https://leetcode.com/ 和 https://leetcode-cn.com/
+-   支持同时登录 https://leetcode.com/ 和 https://leetcode.cn/
 
 ## 运行条件
 

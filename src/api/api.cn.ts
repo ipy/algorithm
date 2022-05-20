@@ -72,7 +72,7 @@ async function getHeaders() {
 	}
 }
 // export async function fetchAllQuestions() {
-// 	const url = 'https://leetcode-cn.com/graphql'
+// 	const url = 'https://leetcode.cn/graphql'
 // 	const headers = await getHeaders()
 // 	axios.request({
 // 		url,
@@ -115,12 +115,12 @@ async function request<T>(config: AxiosRequestConfig): Promise<T> {
 async function graphql<T>(data: GraphqlRequestData): Promise<T> {
 	const headers = await getHeaders()
 	return request<GraphRes<T>>({
-		url: 'https://leetcode-cn.com/graphql',
+		url: 'https://leetcode.cn/graphql',
 		data,
 		method: 'POST',
 		headers: {
-			origin: 'https://leetcode-cn.com',
-			referer: 'https://leetcode-cn.com/problemset/all/',
+			origin: 'https://leetcode.cn',
+			referer: 'https://leetcode.cn/problemset/all/',
 			...headers,
 		},
 	}).then((res) => {
@@ -138,13 +138,13 @@ const config = {
 	},
 	getQuestionsByCategory(category: Category): AxiosRequestConfig {
 		return {
-			url: `https://leetcode-cn.com/api/problems/${category}/`,
+			url: `https://leetcode.cn/api/problems/${category}/`,
 			method: 'GET',
 		}
 	},
 	tags: {
-		url: 'https://leetcode-cn.com/problems/api/tags/',
-		referer: 'https://leetcode-cn.com/problemset/all/',
+		url: 'https://leetcode.cn/problems/api/tags/',
+		referer: 'https://leetcode.cn/problemset/all/',
 	},
 	contests: {
 		operationName: null,
@@ -191,7 +191,7 @@ const config = {
 	},
 	getContest(titleSlug: string): AxiosRequestConfig {
 		return {
-			url: `https://leetcode-cn.com/contest/api/info/${titleSlug}/`,
+			url: `https://leetcode.cn/contest/api/info/${titleSlug}/`,
 			method: 'GET',
 		}
 	},
@@ -204,10 +204,10 @@ const config = {
 	},
 	getQuestionContest(titleSlug: string, weekname: string): AxiosRequestConfig {
 		return {
-			url: `https://leetcode-cn.com/contest/${weekname}/problems/${titleSlug}/`,
+			url: `https://leetcode.cn/contest/${weekname}/problems/${titleSlug}/`,
 			method: 'GET',
 			headers: {
-				referer: `https://leetcode-cn.com/contest/${weekname}/`,
+				referer: `https://leetcode.cn/contest/${weekname}/`,
 			},
 		}
 	},
@@ -215,12 +215,12 @@ const config = {
 		const { titleSlug, weekname, question_id, typed_code } = options
 		checkParams(options, ['titleSlug', 'weekname', 'question_id', 'typed_code'])
 		return {
-			url: `https://leetcode-cn.com/contest/api/${weekname}/problems/${titleSlug}/submit/`,
+			url: `https://leetcode.cn/contest/api/${weekname}/problems/${titleSlug}/submit/`,
 			method: 'POST',
 			headers: {
 				'x-requested-with': 'XMLHttpRequest',
-				origin: 'https://leetcode-cn.com',
-				referer: `https://leetcode-cn.com/contest/${weekname}/problems/${titleSlug}/`,
+				origin: 'https://leetcode.cn',
+				referer: `https://leetcode.cn/contest/${weekname}/problems/${titleSlug}/`,
 			},
 			data: {
 				question_id: question_id,
@@ -236,11 +236,11 @@ const config = {
 		const { titleSlug, question_id, typed_code, lang = 'javascript' } = options
 		checkParams(options, ['titleSlug', 'question_id', 'typed_code'])
 		return {
-			url: `https://leetcode-cn.com/problems/${titleSlug}/submit/`,
+			url: `https://leetcode.cn/problems/${titleSlug}/submit/`,
 			method: 'POST',
 			headers: {
-				referer: `https://leetcode-cn.com/problems/${titleSlug}/submissions/`,
-				origin: 'https://leetcode-cn.com',
+				referer: `https://leetcode.cn/problems/${titleSlug}/submissions/`,
+				origin: 'https://leetcode.cn',
 			},
 			data: {
 				question_id,
@@ -256,10 +256,10 @@ const config = {
 		const { submission_id, titleSlug } = options
 		checkParams(options, ['submission_id', 'titleSlug'])
 		return {
-			url: `https://leetcode-cn.com/submissions/detail/${submission_id}/check/`,
+			url: `https://leetcode.cn/submissions/detail/${submission_id}/check/`,
 			method: 'GET',
 			headers: {
-				referer: `https://leetcode-cn.com/problems/${titleSlug}/submissions/`,
+				referer: `https://leetcode.cn/problems/${titleSlug}/submissions/`,
 			},
 		}
 	},
@@ -268,10 +268,10 @@ const config = {
 		checkParams(options, ['submission_id', 'titleSlug', 'weekname'])
 
 		return {
-			url: `https://leetcode-cn.com/submissions/detail/${submission_id}/check/`,
+			url: `https://leetcode.cn/submissions/detail/${submission_id}/check/`,
 			method: 'GET',
 			headers: {
-				referer: `https://leetcode-cn.com/contest/${weekname}/problems/${titleSlug}/`,
+				referer: `https://leetcode.cn/contest/${weekname}/problems/${titleSlug}/`,
 				'x-requested-with': 'XMLHttpRequest',
 			},
 		}

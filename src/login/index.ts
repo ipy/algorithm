@@ -192,14 +192,14 @@ export async function cookieLogin(cookie: string) {
 }
 export async function accountLogin(user: User) {
 	// not support the us website
-	const url = 'https://leetcode-cn.com/accounts/login/'
+	const url = 'https://leetcode.cn/accounts/login/'
 	const request = promisify(_request)
 	const res = await request({
 		url,
 		method: 'POST',
 		headers: {
-			Origin: 'https://leetcode-cn.com',
-			Referer: 'https://leetcode-cn.com/accounts/login/',
+			Origin: 'https://leetcode.cn',
+			Referer: 'https://leetcode.cn/accounts/login/',
 			Cookie: 'csrftoken=null;',
 		},
 		form: {

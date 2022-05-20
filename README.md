@@ -40,7 +40,7 @@ An excellent vscode extension for leetcode.
 
 -   search question
 -   contain daily challenge
--   support login in https://leetcode.com/ and https://leetcode-cn.com/
+-   support login in https://leetcode.com/ and https://leetcode.cn/
 
 ## Requirements
 
